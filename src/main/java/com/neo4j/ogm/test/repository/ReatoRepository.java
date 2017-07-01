@@ -18,9 +18,6 @@ public interface ReatoRepository extends GraphRepository<Reato> {
 	@Query("MATCH (p:Reato) DETACH DELETE p")
 	void clear();
 	
-	/*@Query("MATCH (m:Movie {title:\"The Matrix\"})<-[r:ACTED_IN]-(p:Person {name:\"Keanu Reeves\"}) RETURN p")
-	List<Reato> getActedIn();
-*/
 	Reato getReatoByName(String codice);
 	
 	Reato getReatoByNodeid(String nodeid);

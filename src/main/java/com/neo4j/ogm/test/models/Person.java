@@ -17,7 +17,7 @@ public class Person implements Entity<Person>{
 					nodeid,
 					entityType,
 					name;
-	@Relationship(type = "ImputatoDi", direction = Relationship.UNDIRECTED)
+	@Relationship(type = "AccusedOf", direction = Relationship.UNDIRECTED)
 	public List<AccusedOf> imp;
 	public Person setId(Long id) {
 		this.id = id;
@@ -48,7 +48,7 @@ public class Person implements Entity<Person>{
 		return this.entityType;
 	}
 	public Person setEntityType() {
-		this.entityType = "Individuo";
+		this.entityType = "AccusedOf";
 		return this;
 	}
 }

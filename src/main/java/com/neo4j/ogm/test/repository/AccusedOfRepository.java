@@ -9,12 +9,12 @@ import com.neo4j.ogm.test.models.AccusedOf;
 import com.neo4j.ogm.test.models.Person;
 
 
-public interface ImputatoDiRepository extends GraphRepository<Person> {
+public interface AccusedOfRepository extends GraphRepository<Person> {
 	
-	@Query("match ()-[i:ImputatoDi]-() DELETE i")
+	@Query("match ()-[i:AccusedOf]-() DELETE i")
 	void clear();
 	
-	@Query("match ()-[i:ImputatoDi]-() return i")
+	@Query("match ()-[i:AccusedOf]-() return i")
 	List<AccusedOf> getAll();
 	
 	void save(AccusedOf s);

@@ -18,11 +18,11 @@ public class ImportController {
 	 *
 	 */
 	@Autowired
-	private IndividuoRepository individuoRepository;
+	private PersonRepository personRepository;
 	@Autowired
 	private ReatoRepository reatoRepository;
 	@Autowired
-	private ImputatoDiRepository imputatoDiRepository;
+	private AccusedOfRepository accusedOfRepository;
 
 	//@Qualifier("SessionService")
 	//private SessionInterface service;
@@ -35,6 +35,6 @@ public class ImportController {
 
 	@RequestMapping(value = "/all", method = RequestMethod.GET)
 	public @ResponseBody String all() {
-		return new Importer(individuoRepository, imputatoDiRepository, reatoRepository).run();
+		return new Importer(personRepository, accusedOfRepository, reatoRepository).run();
 	}
 }

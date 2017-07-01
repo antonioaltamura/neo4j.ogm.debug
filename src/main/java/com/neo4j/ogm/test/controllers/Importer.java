@@ -20,32 +20,32 @@ import com.neo4j.ogm.test.repository.*;
 
 public class Importer {
 	@Autowired
-	private IndividuoRepository individuoRepository;
+	private PersonRepository personRepository;
 	@Autowired
-	private ImputatoDiRepository imputatoDiRepository;
+	private AccusedOfRepository accusedOfRepository;
 	@Autowired
 	private ReatoRepository reatoRepository;
 
 
 	@Autowired
-	public Importer(IndividuoRepository individuoRepository, ImputatoDiRepository imputatoDiRepository, ReatoRepository reatoRepository ) {
-		this.individuoRepository = individuoRepository;
-		this.imputatoDiRepository = imputatoDiRepository;
+	public Importer(PersonRepository personRepository, AccusedOfRepository accusedOfRepository, ReatoRepository reatoRepository ) {
+		this.personRepository = personRepository;
+		this.accusedOfRepository = accusedOfRepository;
 		this.reatoRepository = reatoRepository ;
 	}
 
 	public String run() {
 
-		individuoRepository.clear();
-		imputatoDiRepository.clear();
+		personRepository.clear();
+		accusedOfRepository.clear();
 		reatoRepository.clear();
 
 		Person a = new Person().setName("John").setNodeid("1");
 		Person b = new Person().setName("Al").setNodeid("2");
 		Person c = new Person().setName("Jack").setNodeid("3");
-		individuoRepository.save(a);
-		individuoRepository.save(b);
-		individuoRepository.save(c);
+		personRepository.save(a);
+		personRepository.save(b);
+		personRepository.save(c);
 
 		Reato d = new Reato().setName("E1").setNodeid("E1");
 		Reato e = new Reato().setName("E2").setNodeid("E2");
@@ -59,8 +59,8 @@ public class Importer {
 		r
 		.setSource(a)
 		.setTarget(reatoRepository.getReatoByNodeid("E1"));
-		imputatoDiRepository.save(r);
-		//r.setAggravante(new Aggravante("AGGR1","description"));
+		accusedOfRepository.save(r);
+		r.setAggravante(new ObjProp("AGGR1","description"));
 
 		return "allright then..";
 	}

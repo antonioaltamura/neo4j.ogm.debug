@@ -7,12 +7,11 @@ import org.neo4j.ogm.annotation.RelationshipEntity;
 import org.neo4j.ogm.annotation.StartNode;
 import org.neo4j.ogm.annotation.typeconversion.Convert;
 
-@RelationshipEntity(type = "ImputatoDi")
+@RelationshipEntity(type = "AccusedOf")
 public class AccusedOf implements Entity<AccusedOf>{
 
 	@GraphId private Long id;
-	@Property private String sourceid,targetid;
-	@Property private String entityType, name, edgeid, descrizione, reato;
+	@Property private String entityType, name, descrizione;
 	public Long getId() {
 		return id;
 	}
@@ -38,19 +37,8 @@ public class AccusedOf implements Entity<AccusedOf>{
 	public ObjProp getAggravante() {
 		return aggravanteCA;
 	}  
-
-	public AccusedOf setEdgeid(String edgeid) {
-		this.edgeid = edgeid;
-		return this;
-	}
-
 	public AccusedOf setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
-		return this;
-	}
-
-	public AccusedOf setReato(String reato) {
-		this.reato = reato;
 		return this;
 	}
 	public AccusedOf setSource(Person source) {
@@ -62,7 +50,7 @@ public class AccusedOf implements Entity<AccusedOf>{
 		return this;
 	}
 	public AccusedOf setEntity() {
-		this.entityType = "ImputatoDi";
+		this.entityType = "AccusedOf";
 		return this;
 	}
 	@Override
