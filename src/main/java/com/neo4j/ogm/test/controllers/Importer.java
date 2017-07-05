@@ -40,6 +40,7 @@ public class Importer {
 		accusedOfRepository.clear();
 		reatoRepository.clear();
 
+		/*-----adding 3 Person nodes----*/
 		Person a = new Person().setName("John").setNodeid("1");
 		Person b = new Person().setName("Al").setNodeid("2");
 		Person c = new Person().setName("Jack").setNodeid("3");
@@ -47,6 +48,7 @@ public class Importer {
 		personRepository.save(b);
 		personRepository.save(c);
 
+		/*-----adding 3 Reato nodes----*/
 		Reato d = new Reato().setName("E1").setNodeid("E1");
 		Reato e = new Reato().setName("E2").setNodeid("E2");
 		Reato f = new Reato().setName("E3").setNodeid("E3");
@@ -55,12 +57,12 @@ public class Importer {
 		reatoRepository.save(f);
 
 
+		//----adding the relationship----
 		AccusedOf r = new AccusedOf();
 		r
 		.setSource(a)
-		.setTarget(reatoRepository.getReatoByNodeid("E1"));
-		
-		r.setAggravante(new ObjProp("AGGR1","description"));
+		.setTarget(reatoRepository.getReatoByNodeid("E1"))
+		.addAggravante(new ObjProp("placeholderKey","placeholderDescription"));
 		accusedOfRepository.save(r);
 
 		return "allright then..";

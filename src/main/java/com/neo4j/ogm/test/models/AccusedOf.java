@@ -26,14 +26,12 @@ public class AccusedOf implements Entity<AccusedOf>{
     Reato target;
         
     public AccusedOf(){
+    	this.aggravanteCA = new ArrayList<ObjProp>();
     }
-/*  BUG on neo4j-ogm 2.1 cannot set CompositeConverter class in RelationshipEntity
- * 
- * */
     @Convert(ObjPropConverter.class)
     private ArrayList<ObjProp> aggravanteCA;
 
-	public AccusedOf setAggravante(ObjProp objProp) {
+	public AccusedOf addAggravante(ObjProp objProp) {
 		this.aggravanteCA.add(objProp);
 		return this;
 	}
