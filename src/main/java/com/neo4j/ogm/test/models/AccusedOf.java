@@ -1,5 +1,8 @@
 package com.neo4j.ogm.test.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.neo4j.ogm.annotation.EndNode;
 import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.Property;
@@ -28,13 +31,13 @@ public class AccusedOf implements Entity<AccusedOf>{
  * 
  * */
     @Convert(ObjPropConverter.class)
-    private ObjProp aggravanteCA;
+    private ArrayList<ObjProp> aggravanteCA;
 
 	public AccusedOf setAggravante(ObjProp objProp) {
-		this.aggravanteCA = objProp;
+		this.aggravanteCA.add(objProp);
 		return this;
 	}
-	public ObjProp getAggravante() {
+	public List<ObjProp> getAggravante() {
 		return aggravanteCA;
 	}  
 	public AccusedOf setDescrizione(String descrizione) {

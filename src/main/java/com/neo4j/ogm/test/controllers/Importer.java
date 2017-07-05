@@ -59,8 +59,9 @@ public class Importer {
 		r
 		.setSource(a)
 		.setTarget(reatoRepository.getReatoByNodeid("E1"));
-		accusedOfRepository.save(r);
+		
 		r.setAggravante(new ObjProp("AGGR1","description"));
+		accusedOfRepository.save(r);
 
 		return "allright then..";
 	}
